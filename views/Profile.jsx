@@ -1,7 +1,7 @@
 const React = require("react");
 const Layout = require("./Layout");
 
-function Profile({ user, registration, ip, title }) {
+function Profile({ user, title }) {
   return (
     <Layout title={title}>
       <main className="">
@@ -18,7 +18,10 @@ function Profile({ user, registration, ip, title }) {
             </div>
             <ul className="list-group list-group-flush">
               <li className="list-group-item">Name: {user.name}</li>
-              <li className="list-group-item">email:____</li>
+              <li className="list-group-item">
+                email:
+                {user.email}
+              </li>
               <li className="list-group-item">IP____</li>
             </ul>
             <div className="card-body d-flex justify-content-around">

@@ -1,11 +1,11 @@
-const { faker } = require("@faker-js/faker");
+const { faker } = require('@faker-js/faker');
 
 // /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
     const meds = [
       {
-        title: "Таблетки от кашля",
+        title: 'Таблетки от кашля',
         price: 100,
         img: faker.image.people(),
         inStock: 1,
@@ -13,7 +13,7 @@ module.exports = {
         updatedAt: new Date(),
       },
       {
-        title: "Таблетки от головной боли",
+        title: 'Таблетки от головной боли',
         price: 200,
         img: faker.image.people(),
         inStock: 1,
@@ -21,7 +21,7 @@ module.exports = {
         updatedAt: new Date(),
       },
       {
-        title: "Аспирин",
+        title: 'Аспирин',
         price: 300,
         img: faker.image.people(),
         inStock: 1,
@@ -29,7 +29,7 @@ module.exports = {
         updatedAt: new Date(),
       },
       {
-        title: "Нога",
+        title: 'Нога',
         price: 300,
         img: faker.image.people(),
         inStock: 1,
@@ -37,10 +37,10 @@ module.exports = {
         updatedAt: new Date(),
       },
     ];
-    await queryInterface.bulkInsert("Meds", meds);
+    await queryInterface.bulkInsert('Meds', meds);
   },
 
   async down(queryInterface, Sequelize) {
-    await queryInterface.bulkDelete("Meds", null, {});
+    await queryInterface.bulkDelete('Meds', null, {});
   },
 };
