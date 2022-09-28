@@ -12,7 +12,7 @@ login?.addEventListener('submit', async (event) => {
         'Content-type': 'application/json',
       },
       body: JSON.stringify({
-        name, password
+        name, password,
       }),
     });
     const result = await responce.json();
