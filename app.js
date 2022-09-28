@@ -1,21 +1,27 @@
-require('@babel/register');
+require("@babel/register");
 
-require('dotenv').config();
+require("dotenv").config();
 
-const express = require('express');
-const { sequelize } = require('./db/models');
+const express = require("express");
+const { sequelize } = require("./db/models");
 
-const configApp = require('./config/serverConfig');
+const configApp = require("./config/serverConfig");
 
-const cardRouter = require('./routes/render/cards');
+const cardRouter = require("./routes/render/cards");
+
+const profileRouter = require("./routes/render/profile");
+
+const editProfile = require("./routes/render/editProfile");
 
 const app = express();
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 4000;
 
 configApp(app);
 
-app.use('/', cardRouter);
+app.use("/", cardRouter);
+app.use("/profile", profileRouter);
+app.use("/edit", editProfile);
 
 app.listen(PORT, async () => {
   try {
