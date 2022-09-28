@@ -2,7 +2,7 @@ require('@babel/register');
 require('dotenv').config();
 
 const express = require('express');
-const { sequelize } = require('./db/models');
+
 
 const configApp = require('./config/serverConfig');
 
@@ -22,7 +22,7 @@ app.use('/registration', registrationRouter);
 
 app.listen(PORT, async () => {
   try {
-    await sequelize.authenticate();
+    // await sequelize.authenticate();
     console.log(`Server has been started on port ${PORT}`);
   } catch (e) {
     console.log(`DB issues! ${e.message}.`);
