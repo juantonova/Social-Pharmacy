@@ -1,3 +1,5 @@
+require('@babel/register');
+
 require('dotenv').config();
 
 const express = require('express');
@@ -5,11 +7,15 @@ const { sequelize } = require('./db/models');
 
 const configApp = require('./config/serverConfig');
 
+const cardRouter = require('./routes/render/cards');
+
 const app = express();
 
 const PORT = process.env.PORT || 3000;
 
 configApp(app);
+
+app.use('/', cardRouter);
 
 app.listen(PORT, async () => {
   try {
