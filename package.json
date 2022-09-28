@@ -1,7 +1,7 @@
 {
   "name": "social-pharmacy",
   "version": "1.0.0",
-  "description": "",
+  "description": "## Звонок от заказчика",
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
@@ -38,5 +38,13 @@
     "sequelize": "^6.23.2",
     "sequelize-cli": "^6.5.1",
     "session-file-store": "^1.5.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/juantonova/Social-Pharmacy.git"
+  },
+  "bugs": {
+    "url": "https://github.com/juantonova/Social-Pharmacy/issues"
+  },
+  "homepage": "https://github.com/juantonova/Social-Pharmacy#readme"
 }
