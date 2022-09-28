@@ -11,7 +11,7 @@ function renderComponent(reactComponent, props = {}, options = { doctype: true }
   const html = ReactDOMServer.renderToStaticMarkup(reactElement);
 
   if (options.doctype) {
-    this.write('<!doctype html>');
+    this.write('<!DOCTYPE html>');
   }
 
   this.end(html);
