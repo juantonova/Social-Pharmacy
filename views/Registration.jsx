@@ -12,16 +12,16 @@ module.exports = function Registration({ }) {
                 <input type="text" placeholder="Введите ваше имя" name="name" className="firstLogin" />
                 </div>
                 <div>
+                <input type="email" placeholder="Введите ваш email" name="email" className="firstEmail" />
+                </div>
+                <div>
                 <input type="password" placeholder="Введите пароль" name="password" className="firstPassword" />
                 </div>
                 <div>
                 <input type="password" placeholder="Подтвердите пароль" name="confirmPassword" className="firstPassword" />
                 </div>
-                <div>
-                <input type="email" placeholder="Введите ваш email" name="email" className="firstEmail" />
-                </div>
                 <div className="btnStyle">
-                <button className="btn" type="submit">Подтвердить</button>
+                <button className="btn" type="submit">Зарегистрироваться</button>
                 </div>
               </form>
               <div className="regErr" />
