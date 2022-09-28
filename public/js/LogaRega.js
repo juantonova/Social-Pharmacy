@@ -30,7 +30,7 @@ const regErr = document.querySelector('.regErr');
 if (registration) {
     registration.addEventListener('submit', async (event) => {
         event.preventDefault();
-        const { name, email, password } = event.target;
+        const { name, email, password, confirmPassword } = event.target;
         const response = await fetch('/registration', {
             method: 'POST',
             headers: {
@@ -40,6 +40,7 @@ if (registration) {
                 name: name.value,
                 email: email.value,
                 password: password.value,
+                confirmPassword: confirmPassword.value,
               }),
         });
         const answer = await response.json();

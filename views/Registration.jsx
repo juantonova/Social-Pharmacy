@@ -15,7 +15,7 @@ module.exports = function Registration({ }) {
                 <input type="password" placeholder="Введите пароль" name="password" className="firstPassword" />
                 </div>
                 <div>
-                <input type="password" placeholder="Подтвердите пароль" name="password" className="firstPassword" />
+                <input type="password" placeholder="Подтвердите пароль" name="confirmPassword" className="firstPassword" />
                 </div>
                 <div>
                 <input type="email" placeholder="Введите ваш email" name="email" className="firstEmail" />

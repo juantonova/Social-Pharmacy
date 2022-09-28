@@ -8,10 +8,10 @@ router.get('/', (req, res) => {
 });
 
 router.post('/', async (req, res) => {
-    const { name, email, password } = req.body;
+    const { name, email, password, confirmPassword } = req.body;
     try {
         const user = await User.findOne({ where: { email }, raw: true,});
-        
+
         if (user) {
             res.json({ status: 'ok', message: 'Пользователь с таким именем уже существует'});
         }
@@ -19,10 +19,12 @@ router.post('/', async (req, res) => {
             res.json({status: 'ok', message: 'Длина пароля должна быть не меньше 8 символов!'});
             return;
         }
-        const hashedPassword = await bcrypt.hash(password, 10);
-        const newUser = await User.create({
-            name, email, password: hashedPassword,
-        });
+        if (password === confirmPassword) {
+            const hashedPassword = await bcrypt.hash(password, 10);
+            const newUser = await User.create({
+                name, email, password: hashedPassword,
+            });
+        }
         req.session.user = { id: newUser.id };
         res.status(200).json({text: 'ok '});
     } catch (err) {
