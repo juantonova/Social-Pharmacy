@@ -16,7 +16,7 @@ module.exports = {
         type: Sequelize.TEXT
       },
       password: {
-        type: Sequelize.INTEGER
+        type: Sequelize.TEXT
       },
       isAdmin: {
         type: Sequelize.BOOLEAN
