@@ -1,10 +1,13 @@
 const router = require("express").Router();
 const { User } = require("../../db/models");
-const editProfile = require("../../views/EditProfile");
 
-router.get("/:id", async (req, res) => {
+router.put("/:id", async (req, res) => {
+  const { name, email } = req.body;
   const user = await User.findOne({ where: { id: req.params.id } });
-  res.renderComponent(editProfile, { user });
+  user.name = name;
+  user.email = email;
+  user.save();
+  res.json({ updated: true });
 });
 
 module.exports = router;

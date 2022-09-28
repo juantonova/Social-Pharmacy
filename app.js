@@ -11,6 +11,7 @@ const editProfile = require("./routes/render/editProfile");
 const profile = require("./routes/render/profile");
 const registrationRouter = require("./routes/render/RegistrationRouter");
 const loginRouter = require("./routes/render/LoginRouter");
+const editProfileApi = require("./routes/api/editProfileApi");
 
 const app = express();
 
@@ -23,6 +24,7 @@ app.use("/login", loginRouter);
 app.use("/profile", profile);
 app.use("/edit", editProfile);
 app.use("/registration", registrationRouter);
+app.use("/edit", editProfileApi);
 
 app.listen(PORT, async () => {
   try {

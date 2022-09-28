@@ -3,7 +3,7 @@ const Layout = require("./Layout");
 
 function Profile({ user, title }) {
   return (
-    <Layout title={title}>
+    <Layout title={title} user={user}>
       <main className="">
         <div className="container-xxl row justify-content-center align-items-center">
           <div className="card" style={{ width: "18rem" }}>
@@ -17,18 +17,21 @@ function Profile({ user, title }) {
               <p className="card-text">Бабушкина аптека</p>
             </div>
             <ul className="list-group list-group-flush">
-              <li className="list-group-item">Name: {user.name}</li>
+              <li className="list-group-item"> Name: {user.name}</li>
               <li className="list-group-item">
                 email:
                 {user.email}
               </li>
-              <li className="list-group-item">IP____</li>
+              {/* <li className="list-group-item">IP____</li> */}
             </ul>
-            <div className="card-body d-flex justify-content-around">
-              <a href={user} className="btn btn-primary">
+            <div className="card-body row justify-content-center align-items-center">
+              <a
+                href={`/edit/${user.id}`}
+                className="btn btn-primary p-3 border"
+              >
                 Изменить профиль
               </a>
-              <button type="button" className="btn btn-warning">
+              <button type="button" className="btn btn-danger p-3 border">
                 Удалить профиль
               </button>
             </div>
