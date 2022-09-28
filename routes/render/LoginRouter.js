@@ -1,10 +1,14 @@
 const router = require('express').Router();
 const bcrypt = require('bcrypt');
 
-const { User } = require('../db/models');
-const Login = require('../views/Login.jsx');
+const { User } = require('../../db/models');
+const Login = require('../../views/Login.jsx');
 
 router.get('/', (req, res) => {
+    res.renderComponent(Login);
+})
+
+router.get('/', async (req, res) => {
     try {
         const { name, password } = req.body;
         const user = await User.findOne({
@@ -25,3 +29,5 @@ router.get('/', (req, res) => {
         res.json({ status: false });
     }
 });
+
+module.exports = router

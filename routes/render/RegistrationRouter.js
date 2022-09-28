@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const bcrypt = require('bcrypt');
-const { User } = require('../db/models');
-const Registration = require('../views/Registration.jsx');
+const { User } = require('../../db/models');
+const Registration = require('../../views/Registration.jsx');
 
 router.get('/', (req, res) => {
     res.renderComponent(Registration, { });
