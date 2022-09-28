@@ -1,8 +1,9 @@
-require("dotenv").config();
-const express = require("express");
-const { sequelize } = require("./db/models");
+require('dotenv').config();
 
-const configApp = require("./config/serverConfig");
+const express = require('express');
+const { sequelize } = require('./db/models');
+
+const configApp = require('./config/serverConfig');
 
 const app = express();
 
