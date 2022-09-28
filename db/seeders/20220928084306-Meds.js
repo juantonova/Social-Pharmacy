@@ -28,6 +28,14 @@ module.exports = {
         createdAt: new Date(),
         updatedAt: new Date(),
       },
+      {
+        title: "Нога",
+        price: 300,
+        img: faker.image.people(),
+        inStock: 1,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
     ];
     await queryInterface.bulkInsert("Meds", meds);
   },
