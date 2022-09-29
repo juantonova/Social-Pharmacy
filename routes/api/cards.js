@@ -7,8 +7,9 @@ router.get('/cards/:id', async (req, res) => {
   if (med.inStock > 0) {
     med.inStock -= 1;
     await med.save();
+    const user_id = res.locals.user.id;
     // доделать логику с юзером (чтобы цеплялся из сессии!!!)
-    await Order.create({ user_id: 1, med_id: med.id, status: 'В корзине' });
+    await Order.create({ user_id, med_id: med.id, status: 'В корзине' });
     return res.json({ basket: true, inStock: med.inStock });
   }
   return res.status(404).json({ basket: false, inStock: med.inStock });
