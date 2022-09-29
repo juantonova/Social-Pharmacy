@@ -28,6 +28,7 @@ router.post('/', async (req, res) => {
       const newUser = await User.create({
         name, email, password: hashedPassword,
       });
+
       req.session.user_id = newUser.id;
       res.status(200).json({ text: 'ok ' });
     } else {

@@ -1,10 +1,10 @@
-const { Model } = require("sequelize");
+const { Model } = require('sequelize');
 
 module.exports = (sequelize, DataTypes) => {
   class User extends Model {
     static associate({ Order }) {
       // eslint-disable-next-line camelcase
-      User.hasMany(Order, { foreignKey: "user_id" });
+      User.hasMany(Order, { foreignKey: 'user_id' });
     }
   }
   User.init(
@@ -24,8 +24,8 @@ module.exports = (sequelize, DataTypes) => {
     },
     {
       sequelize,
-      modelName: "User",
-    }
+      modelName: 'User',
+    },
   );
   return User;
 };
