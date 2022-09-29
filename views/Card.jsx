@@ -10,9 +10,11 @@ function Card({ user, med }) {
         <p className="card-text">Цена: {med.price} руб.</p>
         <p className="card-text">Цена по акции: {med.price / 100 * 90} руб.</p>
         {(med.inStock > 0) ? (<div className="in-stock">В наличии</div>) : (<div className="in-stock">Нет в наличии</div>)}
-        
+
         {user && <a href="#" className="btn btn-outline-success buy-button">Купить</a>}
         {/* {user ? <a href="#" className="btn btn-outline-success buy-button">Купить</a>} : <></> */}
+        {user.isAdmin && <a href="#" className="btn btn-outline-success buy-button">Изменить</a>}
+        {user.isAdmin && <a href="#" className="btn btn-outline-success buy-button">Удалить</a>}
         <p className="status-basket"></p>
       </div>
     </div>

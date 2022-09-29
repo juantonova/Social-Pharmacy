@@ -26,6 +26,29 @@
     width: 28px;
 }
 
+
+.navbar_my {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.navbar__right {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+
+@media (max-width: 992px) {
+    .navbar_my {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+
 .free-card-list {
     background-color:silver;
 }
@@ -33,3 +56,4 @@
 .headers {
     text-align: center;
 }
+
