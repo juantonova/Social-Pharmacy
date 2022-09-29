@@ -18,7 +18,7 @@ if (editProfileform) {
     });
     const data = await response.json();
     if (data.updated) {
-      window.location.href = '/';
+      window.location.href = `/profile/${data.id}`;
     }
   });
 }
@@ -26,16 +26,16 @@ if (editProfileform) {
 //fetch на удаление профиля
 if (btnDeletProfile) {
   btnDeletProfile.addEventListener('click', async (event) => {
-    const { url } = event.target.dataset;
+    const { id } = event.target.dataset;
     event.preventDefault();
-    const response = await fetch(url, {
+    const response = await fetch(`/api/${id}`, {
       method: 'DELETE',
       headers: { 'Content-Type': 'Application/json' },
     });
     const data = await response.json();
 
     if (data.deleted) {
-      window.location.href = data.url;
+      window.location.href = '/';
     }
   });
 }

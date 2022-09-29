@@ -1,13 +1,14 @@
-const React = require("react");
-const Layout = require("./Layout");
+const React = require('react');
+const Layout = require('./Layout');
 
 function EditProfile({ user, title }) {
+  // console.log(user,'user')
   return (
     <Layout title={title} user={user}>
       <main className="">
         <h2>Внесите изменения</h2>
         <div className="container-xxl input-group">
-          <form id="editProfileform" action={`/edit/${user.id}`}>
+          <form id="editProfileform" action={`/api/edit/${user.id}`}>
             <div className="mb-3">
               <label htmlFor="exampleInputEmail1" className="form-label">
                 Name
@@ -34,7 +35,7 @@ function EditProfile({ user, title }) {
                 aria-describedby="emailHelp"
               />
             </div>
-            <button id="btnDeletProfile" type="submit" className="btn btn-primary">
+            <button type="submit" className="btn btn-primary">
               Сохранить изменения
             </button>
           </form>

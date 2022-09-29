@@ -4,13 +4,11 @@ const { User } = require('../../db/models');
 const Registration = require('../../views/Registration');
 
 router.get('/', (req, res) => {
-  res.renderComponent(Registration, { });
+  res.renderComponent(Registration, {});
 });
 
 router.post('/', async (req, res) => {
-  const {
-    name, email, password, confirmPassword,
-  } = req.body;
+  const { name, email, password, confirmPassword } = req.body;
   try {
     const user = await User.findOne({ where: { email }, raw: true });
 
@@ -24,12 +22,15 @@ router.post('/', async (req, res) => {
     if (password === confirmPassword) {
       const hashedPassword = await bcrypt.hash(password, 10);
       const newUser = await User.create({
-        name, email, password: hashedPassword,
+        name,
+        email,
+        password: hashedPassword,
       });
 
       req.session.user = newUser.id;
 
-    res.status(200).json({ text: 'ok ' });
+      res.status(200).json({ text: 'ok ' });
+    }
   } catch (err) {
     res.json({ message: `${err.message}` });
   }

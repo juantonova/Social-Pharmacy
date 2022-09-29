@@ -31,7 +31,7 @@ function Profile({ user, title }) {
               <a href={`/edit/${user.id}`} className="btn btn-primary p-3 border">
                 Изменить профиль
               </a>
-              <button type="button" className="btn btn-danger p-3 border">
+              <button type="button" id="btnDeletProfile" data-id={user.id} className="btn btn-danger p-3 border">
                 Удалить профиль
               </button>
             </div>
