@@ -7,7 +7,7 @@ function EditProfile({ user, title }) {
       <main className="">
         <h2>Внесите изменения</h2>
         <div className="container-xxl input-group">
-          <form id="editprofile" action={`/edit/${user.id}`}>
+          <form id="editProfileform" action={`/edit/${user.id}`}>
             <div className="mb-3">
               <label htmlFor="exampleInputEmail1" className="form-label">
                 Name
@@ -34,7 +34,7 @@ function EditProfile({ user, title }) {
                 aria-describedby="emailHelp"
               />
             </div>
-            <button type="submit" className="btn btn-primary">
+            <button id="btnDeletProfile" type="submit" className="btn btn-primary">
               Сохранить изменения
             </button>
           </form>

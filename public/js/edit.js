@@ -1,40 +1,41 @@
+const editProfileform = document.querySelector("#editProfileform");
+const btnDeletProfile = document.querySelector("#btnDeletProfile");
 
-// фетч на обновление песни
-// if (updateSong) {
-//     updateSong.addEventListener("submit", async (event) => {
-//       event.preventDefault();
-//       const { action, singer, songTitle } = event.target;
-//       const response = await fetch(action, {
-//         method: "PUT",
-//         headers: {
-//           "Content-Type": "Application/json",
-//         },
-//         body: JSON.stringify({
-//           singer: singer.value,
-//           songTitle: songTitle.value,
-//         }),
-//       });
-//       const data = await response.json();
-//       console.log(data);
-//       if (data.updated) {
-//         window.location.href = "/all-the-entries";
-//       }
+//fetch на изменение профиля
+if (editProfileform) {
+  editProfileform.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    const { action, name, email } = event.target;
+    const response = await fetch(action, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "Application/json",
+      },
+      body: JSON.stringify({
+        name: name.value,
+        email: email.value,
+      }),
+    });
+    const data = await response.json();
+    if (data.updated) {
+      window.location.href = "/";
+    }
+  });
+}
+
+// fetch на удаление профиля
+// if (btnDeletProfile) {
+//   btnDeletProfile.addEventListener("click", async (event) => {
+//     const { url } = event.target.dataset;
+//     event.preventDefault();
+//     const response = await fetch(url, {
+//       method: "DELETE",
+//       headers: { "Content-Type": "Application/json" },
 //     });
-//   }
+//     const data = await response.json();
 
-// фетч на удаление
-//   entries.addEventListener("click", async (event) => {
-//     if (event.target.parentNode.classList.contains("delete")) {
-//       event.preventDefault();
-//       const response = await fetch(
-//         `/delete-entry/${event.target.parentNode.dataset.id}`,
-//         {
-//           method: "DELETE",
-//         }
-//       );
-//       const data = await response.json();
-//       if (data.deleted) {
-//         window.location.href = "/all-the-entries";
-//       }
+//     if (data.deleted) {
+//       window.location.href = data.url;
 //     }
 //   });
+// }
