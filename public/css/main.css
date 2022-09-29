@@ -14,3 +14,10 @@
     max-width: 25%;
 
 }
+
+.sort-button {
+    margin: 2px;
+    padding: 0px;
+    height: 28px;
+    width: 28px;
+}
