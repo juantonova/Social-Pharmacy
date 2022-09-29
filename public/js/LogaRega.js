@@ -47,10 +47,10 @@ if (registration) {
       }),
     });
     const answer = await response.json();
-    if (response.status === 200) {
-      window.location.assign('/');
+    if (answer.status === 'error') {
+      regErr.innerHTML = answer.message;
     } else {
-      regErr.innerHTML = answer.text;
+      window.location.assign('/');
     }
   });
 }

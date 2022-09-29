@@ -13,12 +13,14 @@ router.post('/', async (req, res) => {
   } = req.body;
   try {
     const user = await User.findOne({ where: { email }, raw: true });
+    // console.log(user);
 
     if (user) {
-      res.json({ status: 'ok', message: 'Пользователь с таким именем уже существует' });
+      res.json({ status: 'error', message: 'Пользователь с таким именем уже существует' });
+      return;
     }
     if (password.length < 8) {
-      res.json({ status: 'ok', message: 'Длина пароля должна быть не меньше 8 символов!' });
+      res.json({ status: 'error', message: 'Длина пароля должна быть не меньше 8 символов!' });
       return;
     }
     if (password === confirmPassword) {
@@ -27,8 +29,10 @@ router.post('/', async (req, res) => {
         name, email, password: hashedPassword,
       });
       req.session.user_id = newUser.id;
+      res.status(200).json({ text: 'ok ' });
+    } else {
+      res.json({ status: 'error', message: 'Пароли не совпадают!' });
     }
-    res.status(200).json({ text: 'ok ' });
   } catch (err) {
     res.json({ message: `${err.message}` });
   }
