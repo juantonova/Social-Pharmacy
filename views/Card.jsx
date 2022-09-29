@@ -5,7 +5,7 @@ function Card({ user, med }) {
 
     <div className="card border border-secondary med-card" key={med.id}>
       <div className="card-body" id={med.id}>
-        <img src={med.img} className="card-img-top" alt={`${med.title} image`} />
+       <div className='img-card'> <img src={med.img} className="card-img-top" alt={`${med.title} image`} /></div>
         <h5 className="card-title">{med.title}</h5>
         <p className="card-text">Цена: {med.price} руб.</p>
         <p className="card-text">Цена по акции: {med.price / 100 * 90} руб.</p>

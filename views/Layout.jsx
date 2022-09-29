@@ -1,7 +1,7 @@
 const React = require('react');
 const Navbar = require('./Navbar');
 
-function Layout({ children, user }) {
+function Layout({ children, user}) {
   return (
     <html lang="ru">
       <head>
@@ -15,6 +15,7 @@ function Layout({ children, user }) {
         <script defer src="/js/cards.js" />
         <script defer src="/js/edit.js" />
         <script defer src="/js/LogaRega.js" />
+        <script defer src="/js/order.js" />
         <title>Farmacy</title>
       </head>
       <body>
