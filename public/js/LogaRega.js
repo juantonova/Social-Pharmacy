@@ -30,7 +30,10 @@ const regErr = document.querySelector('.regErr');
 if (registration) {
   registration.addEventListener('submit', async (event) => {
     event.preventDefault();
-    const { name, email, password, confirmPassword } = event.target;
+    const {
+      name, email, password, confirmPassword,
+    } = event.target;
+
     const response = await fetch('/registration', {
       method: 'POST',
       headers: {
@@ -49,5 +52,5 @@ if (registration) {
     } else {
       regErr.innerHTML = answer.text;
     }
-  })
+  });
 }

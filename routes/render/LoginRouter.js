@@ -30,4 +30,14 @@ router.post('/', async (req, res) => {
   }
 });
 
+router.get('/logout', (req, res) => {
+  req.session.destroy((error) => {
+    if (error) {
+      return res.status(500).json({ message: 'Session delete error' });
+    } res
+      .clearCookie('user_sid')
+      .redirect('/');
+  });
+});
+
 module.exports = router;

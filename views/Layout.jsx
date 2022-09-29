@@ -1,6 +1,7 @@
-const React = require("react");
+const React = require('react');
+const Navbar = require('./Navbar');
 
-function Layout({ children }) {
+function Layout({ children, user }) {
   return (
     <html lang="ru">
       <head>
@@ -16,7 +17,10 @@ function Layout({ children }) {
         <script defer src="/js/LogaRega.js" />
         <title>Farmacy</title>
       </head>
-      <body>{children}</body>
+      <body>
+        <Navbar user={user} />
+        {children}
+      </body>
     </html>
   );
 }
