@@ -1,4 +1,4 @@
-const React = require('react');
+const React = require("react");
 
 function Layout({ children }) {
   return (
@@ -12,12 +12,11 @@ function Layout({ children }) {
         <script defer src="/js/bootstrap.bundle.min.js" />
         <script defer src="/js/main.js" />
         <script defer src="/js/cards.js" />
+        <script defer src="/js/edit.js" />
         <script defer src="/js/LogaRega.js" />
         <title>Farmacy</title>
       </head>
-      <body>
-        {children}
-      </body>
+      <body>{children}</body>
     </html>
   );
 }
