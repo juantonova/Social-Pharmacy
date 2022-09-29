@@ -12,6 +12,7 @@ function Card({ med }) {
         {(med.inStock > 0) ? (<div>В наличии</div>) : (<div>Нет в наличии</div>)}
         
         <a href="#" className="btn btn-outline-success buy-button">Купить</a>
+        <p className="status-basket"></p>
       </div>
     </div>
   );
