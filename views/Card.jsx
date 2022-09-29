@@ -13,8 +13,8 @@ function Card({ user, med }) {
 
         {user && <a href="#" className="btn btn-outline-success buy-button">Купить</a>}
         {/* {user ? <a href="#" className="btn btn-outline-success buy-button">Купить</a>} : <></> */}
-        {user.isAdmin && <a href="#" className="btn btn-outline-success buy-button">Изменить</a>}
-        {user.isAdmin && <a href="#" className="btn btn-outline-success buy-button">Удалить</a>}
+        {(user && user.isAdmin) ? (<a href="#" className="btn btn-outline-success buy-button">Изменить</a>) : (<></>)}
+        {(user && user.isAdmin) ? (<a href="#" className="btn btn-outline-success buy-button">Удалить</a>) : (<></>)}
         <p className="status-basket"></p>
       </div>
     </div>

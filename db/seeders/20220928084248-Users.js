@@ -5,10 +5,10 @@ module.exports = {
   async up(queryInterface, Sequelize) {
     const users = [
       {
-        name: faker.name.fullName(),
-        email: '12345@mail.ru',
-        password: await bcrypt.hash('qwe123456', 10),
-        isAdmin: false,
+        name: 'angelika',
+        email: 'angelika@mail.ru',
+        password: await bcrypt.hash('12345678', 10),
+        isAdmin: true,
         createdAt: new Date(),
         updatedAt: new Date(),
       },
