@@ -8,7 +8,6 @@ router.get('/cards/:id', async (req, res) => {
     med.inStock -= 1;
     await med.save();
     const user_id = res.locals.user.id;
-    // доделать логику с юзером (чтобы цеплялся из сессии!!!)
     await Order.create({ user_id, med_id: med.id, status: 'В корзине' });
     return res.json({ basket: true, inStock: med.inStock });
   }

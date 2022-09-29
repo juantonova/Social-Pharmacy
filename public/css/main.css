@@ -21,3 +21,11 @@
     height: 28px;
     width: 28px;
 }
+
+.free-card-list {
+    background-color:silver;
+}
+
+.headers {
+    text-align: center;
+}

@@ -2,9 +2,9 @@ const React = require('react');
 const Layout = require('./Layout');
 const Card = require('./Card');
 
-function CardsList({ meds, user }) {
+function CardsList({ fmeds, user, freeMeds }) {
   return (
-    <Layout user={user}>
+    <Layout user={user} freeMeds={freeMeds}>
 
       <div>
         <span>Сортировать по цене: </span>
@@ -12,7 +12,7 @@ function CardsList({ meds, user }) {
         <button type="button" className="btn btn-outline-success sort-button" id="sort-up"><img src="/img/icons8-sort-up-16.png" alt="arrow-up" /></button>
       </div>
       <div className="card-list">
-        {meds.map((med) => (
+        {fmeds.map((med) => (
           <Card med={med} user={user} />
         ))}
       </div>
