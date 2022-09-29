@@ -1,8 +1,7 @@
 const React = require('react');
 const Navbar = require('./Navbar');
-const FreeMeds = require('./FreeCardList')
 
-function Layout({ children, user, freeMeds}) {
+function Layout({ children, user}) {
   return (
     <html lang="ru">
       <head>
@@ -20,7 +19,6 @@ function Layout({ children, user, freeMeds}) {
       </head>
       <body>
         <Navbar user={user} />
-        <FreeMeds user={user} meds={freeMeds} />
         {children}
       </body>
     </html>
