@@ -17,10 +17,17 @@ if (sortDown) {
 if (cardList) {
   cardList.addEventListener('click', async (event) => {
     if (event.target.classList.contains('buy-button')) {
-      const medId = event.target.closest('.card-body').id;
+      const med = event.target.closest('.card-body');
+      const medId = med.id;
       const response = await fetch(`api/cards/${medId}`);
       const answer = await response.json();
-      const statusBasket = event.target.closest('.status-basket');
+      const statusBasket = med.querySelector('.status-basket');
+      const inStock = med.querySelector('.in-stock');
+      if (answer.inStock <= 0) {
+        inStock.textContent = 'Нет в наличии';
+      } else {
+        inStock.textContent = 'В наличии';
+      }
       if (answer.basket) {
         statusBasket.textContent = 'Товар добавлен в корзину';
       } else {
@@ -29,4 +36,3 @@ if (cardList) {
     }
   });
 }
-
