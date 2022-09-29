@@ -13,6 +13,7 @@ const profile = require('./routes/render/profile');
 const registrationRouter = require('./routes/render/RegistrationRouter');
 const loginRouter = require('./routes/render/LoginRouter');
 const editProfileApi = require('./routes/api/editProfileApi');
+const orderRouter = require('./routes/render/orderRouter');
 
 const app = express();
 
@@ -27,6 +28,7 @@ app.use('/profile', profile);
 app.use('/edit', editProfile);
 app.use('/registration', registrationRouter);
 app.use('/api', editProfileApi);
+app.use('/order', orderRouter);
 
 app.listen(PORT, async () => {
   try {

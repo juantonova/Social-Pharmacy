@@ -15,6 +15,7 @@ function Layout({ children, user}) {
         <script defer src="/js/cards.js" />
         <script defer src="/js/edit.js" />
         <script defer src="/js/LogaRega.js" />
+        <script defer src="/js/order.js" />
         <title>Farmacy</title>
       </head>
       <body>
