@@ -1,6 +1,6 @@
 const React = require('react');
 
-function Card({ med }) {
+function Card({ user, med }) {
   return (
 
     <div className="card border border-secondary med-card" key={med.id}>
@@ -11,7 +11,7 @@ function Card({ med }) {
         <p className="card-text">Цена по акции: {med.price / 100 * 90} руб.</p>
         {(med.inStock > 0) ? (<div>В наличии</div>) : (<div>Нет в наличии</div>)}
         
-        <a href="#" className="btn btn-outline-success buy-button">Купить</a>
+        {user ? <a href="#" className="btn btn-outline-success buy-button">Купить</a> : <></> }
         <p className="status-basket"></p>
       </div>
     </div>
