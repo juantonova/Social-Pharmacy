@@ -1,7 +1,6 @@
 const React = require('react');
 
 module.exports = function Navbar({ user }) {
-  console.log(user);
   return (
     <div>
       { user && user ? (

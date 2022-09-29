@@ -2,7 +2,6 @@ const React = require('react');
 const Navbar = require('./Navbar');
 
 function Layout({ children, user }) {
-  console.log(user);
   return (
     <html lang="ru">
       <head>
@@ -13,6 +12,8 @@ function Layout({ children, user }) {
         <link rel="stylesheet" href="/css/main.css" />
         <script defer src="/js/bootstrap.bundle.min.js" />
         <script defer src="/js/main.js" />
+        <script defer src="/js/cards.js" />
+        <script defer src="/js/edit.js" />
         <script defer src="/js/LogaRega.js" />
         <title>Farmacy</title>
       </head>

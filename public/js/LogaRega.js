@@ -33,6 +33,7 @@ if (registration) {
     const {
       name, email, password, confirmPassword,
     } = event.target;
+
     const response = await fetch('/registration', {
       method: 'POST',
       headers: {
