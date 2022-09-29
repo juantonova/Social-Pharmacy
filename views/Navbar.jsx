@@ -3,7 +3,7 @@ const React = require('react');
 module.exports = function Navbar({ user }) {
   return (
     <div>
-      { user && user ? (
+      { user ? (
         <nav className="navbar navbar-expand-lg bg-light">
           <div className="container-fluid">
             <a className="navbar-brand" href="#">Navbar</a>

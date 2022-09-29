@@ -27,7 +27,8 @@ router.post('/', async (req, res) => {
         name, email, password: hashedPassword,
       });
 
-      req.session.user = newUser.id;
+      req.session.user_id = newUser.id;
+    }
 
     res.status(200).json({ text: 'ok ' });
   } catch (err) {

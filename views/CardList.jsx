@@ -13,7 +13,7 @@ function CardsList({ meds, user }) {
       </div>
       <div className="card-list">
         {meds.map((med) => (
-          <Card med={med} />
+          <Card med={med} user={user} />
         ))}
       </div>
     </Layout>
