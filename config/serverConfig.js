@@ -12,7 +12,7 @@ module.exports = function configApp(app) {
   app.use(getUser);
   app.use(cookieParser());
   app.use(session(sessionConfig));
-  app.use(express.static('public'));
   app.use(express.json());
   app.use(express.static('public'));
+  app.use(express.json());
 };
