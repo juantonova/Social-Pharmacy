@@ -2,9 +2,9 @@ const React = require('react');
 const Layout = require('./Layout');
 const Card = require('./Card');
 
-function CardsList({ meds }) {
+function CardsList({ meds, user }) {
   return (
-    <Layout>
+    <Layout user={user}>
       <div className="card-list">
         {meds.map((med) => <Card med={med} />)}
       </div>

@@ -1,7 +1,7 @@
 const { User } = require('../db/models');
 
 async function getUser(req, res, next) {
-  if (req.session) {
+  if (req.session.user_id) {
     // console.log(req.session);
     const user = await User.findByPk((req.session.user_id));
     res.locals.user = user;
