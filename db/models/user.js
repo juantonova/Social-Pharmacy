@@ -4,7 +4,7 @@ module.exports = (sequelize, DataTypes) => {
   class User extends Model {
     static associate({ Order }) {
       // eslint-disable-next-line camelcase
-      User.hasMany(Order, { foreignKey: 'user_id' });
+      User.hasMany(Order, { foreignKey: 'user_id', onDelete: 'CASCADE' });
     }
   }
   User.init(
@@ -25,7 +25,7 @@ module.exports = (sequelize, DataTypes) => {
     {
       sequelize,
       modelName: 'User',
-    },
+    }
   );
   return User;
 };

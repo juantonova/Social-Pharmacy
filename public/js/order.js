@@ -1,4 +1,4 @@
-const container = document.querySelector('.container-xxl');
+const container = document.querySelector('.js-order');
 
 container.addEventListener('click', async (event) => {
   event.preventDefault();
