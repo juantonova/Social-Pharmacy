@@ -4,11 +4,11 @@ const Layout = require('./Layout');
 function Order({ user, orders, title, meds, total, count }) {
   return (
     <Layout title={title} user={user} orders={orders} orders={meds} total={total} count={count}>
-      <div className="container-xxl js-order">
+      <div className="container-xxl js-order final-order">
         <h3 className="card-title">Корзина </h3>
         <div>
           <h5>Стоимость заказа {total} руб.</h5>
-          <button type="button" className="btn btn-outline-primary ">
+          <button type="button" className="btn btn-outline-primary order-make">
             Оформить заказ
           </button>
         </div>

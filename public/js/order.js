@@ -1,5 +1,7 @@
 const container = document.querySelector('.js-order');
-
+const orderMake = document.querySelector('.order-make');
+const finalOrder = document.querySelector('.final-order');
+console.log(finalOrder)
 container.addEventListener('click', async (event) => {
   event.preventDefault();
   if (event.target.classList.contains('btnPlus-data')) {
@@ -30,3 +32,11 @@ container.addEventListener('click', async (event) => {
     }
   }
 });
+
+if (orderMake) {
+  orderMake.addEventListener('click', async () => {
+    const response = await fetch('api/ordermake');
+    const data = await response.json();
+    finalOrder.innerHTML = data.status;
+  });
+}
