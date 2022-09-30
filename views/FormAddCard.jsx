@@ -1,9 +1,9 @@
 const React = require('react');
 const Layout = require('./Layout');
 
-module.exports = function FormAddCard({ }) {
+module.exports = function FormAddCard({ user }) {
     return (
-            <Layout title="Добавление товара">
+            <Layout user={user} title="Добавление товара">
               <div className="container">
               <h1 className="rereg">Добавить товар</h1>
               <div className="regaTable">
