@@ -15,12 +15,23 @@ router.get('/order', async (req, res) => {
   }
   const total = meds.map((el) => el.price).reduce((x, y) => x + y, 0);
   const count = orders.map((el) => el.count);
+
+  let totalPrice = 0;
+  orders.forEach((order) =>
+    meds.forEach((med) => {
+      if (order.med_id === med.id) {
+        totalPrice += order.count * med.price;
+      }
+    })
+  );
+
   res.renderComponent(orderViews, {
     user,
     orders,
     meds,
     total,
     count,
+    totalPrice,
   });
 });
 
@@ -36,7 +47,7 @@ router.get('/add/order/:id', async (req, res) => {
     if (order) {
       order.count += 1;
       await order.save();
-      return res.json({ basket: true, order: order.count });
+      return res.json({ basket: true, order: order.count, med: med.price });
     }
     return res.status(404).json({ basket: false, order: order.count });
   } else {
@@ -55,7 +66,7 @@ router.get('/remove/order/:id', async (req, res) => {
     await order.save();
     med.inStock += 1;
     await med.save();
-    return res.json({ basket: true, order: order.count });
+    return res.json({ basket: true, order: order.count, med: med.price });
   }
   return res.status(404).json({ basket: false, order: order.count });
 });
