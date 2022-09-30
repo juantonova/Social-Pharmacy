@@ -14,4 +14,22 @@ router.get('/cards/:id', async (req, res) => {
   return res.status(404).json({ basket: false, inStock: med.inStock });
 });
 
+router.post('/addform', async (req, res) => {
+  try {
+    const {
+      title, price, url, inStock,
+    } = req.body;
+    const med = await Med.findOne({ where: { title } });
+    if (med) {
+      return res.status(404).json({ message: 'Такой товар уже существует!', status: false });
+    }
+    await Med.create({
+      title, price, img: url, inStock,
+    });
+    return res.json({ url: '/', status: true });
+  } catch (err) {
+    return res.status(500).json({ message: err.message, status: false });
+  }
+});
+
 module.exports = router;

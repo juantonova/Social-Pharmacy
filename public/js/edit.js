@@ -23,7 +23,7 @@ if (editProfileform) {
   });
 }
 
-//fetch на удаление профиля
+// fetch на удаление профиля
 if (btnDeletProfile) {
   btnDeletProfile.addEventListener('click', async (event) => {
     const { id } = event.target.dataset;

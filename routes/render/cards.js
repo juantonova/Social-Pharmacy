@@ -2,6 +2,7 @@ const router = require('express').Router();
 
 const CardsList = require('../../views/CardList');
 const { Med } = require('../../db/models');
+const FormAddCard = require('../../views/FormAddCard');
 
 router.get('/', async (req, res) => {
   const meds = await Med.findAll({ raw: true });
@@ -24,12 +25,16 @@ router.get('/up', async (req, res) => {
 
 router.get('/down', async (req, res) => {
   const meds = await Med.findAll({ raw: true });
-  const freeMeds = await meds.slice(0, 3);
+  const freeMeds = meds.slice(0, 3);
   const freeMedsId = freeMeds.map((med) => med.id);
   const { user } = res.locals;
   const fmeds = meds.filter((med) => !freeMedsId.includes(med.id));
   fmeds.sort((a, b) => b.price - a.price);
   res.renderComponent(CardsList, { fmeds, user, freeMeds });
+});
+
+router.get('/addform', async (req, res) => {
+  res.renderComponent(FormAddCard, { });
 });
 
 module.exports = router;

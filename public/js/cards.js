@@ -1,6 +1,8 @@
 const sortUp = document.querySelector('#sort-up');
 const sortDown = document.querySelector('#sort-down');
 const cardList = document.querySelector('.card-list');
+const addForm = document.querySelector('.add-form');
+const addErr = document.querySelector('.addErr');
 
 if (sortUp) {
   sortUp.addEventListener('click', () => {
@@ -33,6 +35,34 @@ if (cardList) {
       } else {
         statusBasket.textContent = 'Товара нет в наличии';
       }
+    }
+  });
+}
+
+if (addForm) {
+  addForm.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    const {
+      action, method, price, url, title, inStock,
+    } = event.target;
+    console.log(action, method, price, url, title);
+    const response = await fetch(action, {
+      method,
+      headers: {
+        'Content-type': 'Application/json',
+      },
+      body: JSON.stringify({
+        title: title.value,
+        price: price.value,
+        url: url.value,
+        inStock: inStock.value,
+      }),
+    });
+    const answer = await response.json();
+    if (answer.status) {
+      window.location.href = '/';
+    } else {
+      addErr.textContent = answer.message;
     }
   });
 }
