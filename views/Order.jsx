@@ -1,14 +1,24 @@
 const React = require('react');
 const Layout = require('./Layout');
 
-function Order({ user, orders, title, meds, total, count }) {
+function Order({ user, orders, title, meds, totalPrice, count }) {
   return (
-    <Layout title={title} user={user} orders={orders} orders={meds} total={total} count={count}>
-      <div className="container-xxl js-order final-order">
+    <Layout
+      title={title}
+      user={user}
+      orders={orders}
+      orders={meds}
+      totalPrice={totalPrice}
+      count={count}
+    >
+      <div className="container-xxl js-order">
         <h3 className="card-title">Корзина </h3>
         <div>
-          <h5>Стоимость заказа {total} руб.</h5>
-          <button type="button" className="btn btn-outline-primary order-make">
+          <h5 className="js-total">
+            Стоимость заказа
+            <p className="js-totalPrice">{totalPrice}</p> руб.
+          </h5>
+          <button type="button" className="btn btn-outline-primary ">
             Оформить заказ
           </button>
         </div>
