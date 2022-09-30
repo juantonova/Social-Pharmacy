@@ -26,8 +26,10 @@ if (editProfileform) {
 //fetch на удаление профиля
 if (btnDeletProfile) {
   btnDeletProfile.addEventListener('click', async (event) => {
-    const { id } = event.target.dataset;
     event.preventDefault();
+    const { id } = event.target.dataset;
+    const { url } = event.target.dataset;
+    console.log(url);
     const response = await fetch(`/api/${id}`, {
       method: 'DELETE',
       headers: { 'Content-Type': 'Application/json' },

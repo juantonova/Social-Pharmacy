@@ -24,6 +24,9 @@ module.exports = {
       status: {
         type: Sequelize.TEXT,
       },
+      count: {
+        type: Sequelize.INTEGER,
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,
