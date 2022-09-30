@@ -8,13 +8,13 @@ router.get('/cards/:id', async (req, res) => {
     med.inStock -= 1;
     await med.save();
     const user_id = res.locals.user.id;
-    const order = await Order.findOne({ where: { med_id: med.id, user_id } });
+    const order = await Order.findOne({ where: { med_id: med.id, user_id, status: 'В корзине'} });
     if (order) {
       order.count += 1;
       await order.save();
       return res.json({ basket: true, inStock: med.inStock });
     }
-    await Order.create({
+    const or = await Order.create({
       user_id, med_id: med.id, status: 'В корзине', count: 1,
     });
     return res.json({ basket: true, inStock: med.inStock });
@@ -29,8 +29,10 @@ router.get('/free/cards/:id', async (req, res) => {
     med.inStock -= 1;
     await med.save();
     const user_id = res.locals.user.id;
-    const order = Order.findOne({ where: { med_id: med.id, user_id } });
+    const order = Order.findOne({ where: { med_id: med.id, user_id, status: 'В корзине' } });
     if (order) {
+      med.price = 0;
+      med.save();
       order.count += 1;
       await order.save();
       return res.json({ basket: true, inStock: med.inStock });
@@ -62,6 +64,7 @@ router.post('/addform', async (req, res) => {
   }
 });
 
+
 // Админ: удаление карточки
 
 // router.delete('/cards/admin/id-:id', async (req, res) => {
@@ -78,5 +81,16 @@ router.post('/addform', async (req, res) => {
 // });
 
 // Админ: изменение карточки
+
+router.get('/ordermake', async (req, res) => {
+  const { id } = res.locals.user;
+  const order = await Order.findAll({ where: { user_id: id } }, { raw: true });
+  order.forEach(async (med) => {
+    med.status = 'Заказ оформлен';
+    await med.save();
+  });
+  res.json({ status: 'Заказ оформлен!' });
+});
+
 
 module.exports = router;

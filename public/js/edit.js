@@ -30,12 +30,11 @@ if (btnDeletProfile) {
     const { id } = event.target.dataset;
     const { url } = event.target.dataset;
     console.log(url);
-    const response = await fetch(`/api/${id}`, {
+    const response = await fetch(`/api/edit/${id}`, {
       method: 'DELETE',
       headers: { 'Content-Type': 'Application/json' },
     });
     const data = await response.json();
-
     if (data.deleted) {
       window.location.href = '/';
     }

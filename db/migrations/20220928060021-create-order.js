@@ -13,6 +13,7 @@ module.exports = {
           model: 'Users',
           key: 'id',
         },
+        onDelete: 'CASCADE',
       },
       med_id: {
         type: Sequelize.INTEGER,
@@ -20,6 +21,7 @@ module.exports = {
           model: 'Meds',
           key: 'id',
         },
+        onDelete: 'CASCADE',
       },
       status: {
         type: Sequelize.TEXT,

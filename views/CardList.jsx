@@ -17,6 +17,7 @@ function CardsList({ fmeds, user, freeMeds }) {
           <Card med={med} user={user} />
         ))}
       </div>
+      <div id="map" className="map"></div>
     </Layout>
   );
 }

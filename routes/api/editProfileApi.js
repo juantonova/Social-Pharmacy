@@ -2,8 +2,8 @@ const router = require('express').Router();
 const { User } = require('../../db/models');
 
 // роутер на изменение профиля
+// PUT /api/edit/:id
 router.route('/edit/:id').put(async (req, res) => {
-  console.log('ya tut');
   const { name, email } = req.body;
   const user = await User.findOne({ where: { id: req.params.id } });
   user.name = name;
@@ -12,14 +12,17 @@ router.route('/edit/:id').put(async (req, res) => {
   res.json({ updated: true, id: user.id });
 });
 
-// роутер на удаление профиля
+// DELETE /api/edit/:id
 router.route('/edit/:id').delete((req, res) => {
   const { id } = req.params;
-  User.destroy({ where: { id } })
-    .then((deletedUser) =>
-      deletedUser ? res.json({ deleted: true, id }) : res.status(404).json({ deleted: false })
-    )
-    .catch((error) => res.status(500).json({ message: error.message }));
+  console.log(req.params.id);
+  User.destroy({ where: { id } }).then((deletedUser) => (deletedUser ? res.json({ deleted: true }) : res.json({ deleted: false })));
+  // req.session.destroy((error) => {
+  //   if (error) {
+  //     return res.status(500).json({ message: 'Session delete error' });
+  //   }
+  //   res.clearCookie('user_sid').redirect('/');
+  // });
 });
 
 module.exports = router;

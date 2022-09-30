@@ -21,7 +21,7 @@ if (sortDown) {
 if (cardList) {
   cardList.addEventListener('click', async (event) => {
     event.preventDefault();
-    if (event.target.classList.contains('buy-button')) {
+    if (event.target.classList.contains('buy-buy-button')) {
       const med = event.target.closest('.card-body');
       const medId = med.id;
       const response = await fetch(`api/cards/${medId}`);
@@ -29,6 +29,7 @@ if (cardList) {
       const statusBasket = med.querySelector('.status-basket');
       const inStock = med.querySelector('.in-stock');
       if (answer.inStock <= 0) {
+        inStock.classList = 'not-in-stock';
         inStock.textContent = 'Нет в наличии';
       } else {
         inStock.textContent = 'В наличии';
@@ -72,7 +73,7 @@ if (addForm) {
 if (freeCardList) {
   freeCardList.addEventListener('click', async (event) => {
     event.preventDefault();
-    if (event.target.classList.contains('buy-button')) {
+    if (event.target.classList.contains('buy-buy-button')) {
       const med = event.target.closest('.card-body');
       const medId = med.id;
       const response = await fetch(`api/cards/${medId}`);

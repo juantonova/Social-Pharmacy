@@ -8,13 +8,13 @@ function Profile({ user, title }) {
         <div className="container-xxl row justify-content-center align-items-center">
           <div className="card" style={{ width: '18rem' }}>
             <img
-              src="/img/—Pngtree—neon cannabis logo_5548557.png"
+              src="/img/—Pngtree—medicine pill capsule drugs tablet_4986373.png"
               className="card-img-top"
               alt="..."
             />
             <div className="card-body">
               <h5 className="card-title">Ваш профиль</h5>
-              <p className="card-text">Бабушкина аптека</p>
+              <p className="card-text"></p>
             </div>
             <ul className="list-group list-group-flush">
               <li className="list-group-item"> Name: {user.name}</li>
@@ -28,13 +28,13 @@ function Profile({ user, title }) {
               className="card-body row justify-content-center align-items-center"
               data-id={user.id}
             >
-              <a href={`/edit/${user.id}`} className="btn btn-primary p-3 border">
+              <a href={`/edit/${user.id}`} className="btn btn-success p-3 border">
                 Изменить профиль
               </a>
               <button
                 type="button"
                 id="btnDeletProfile"
-                data-url={`/edit/${user.id}`}
+                data-url={`/api/edit/${user.id}`}
                 data-id={user.id}
                 className="btn btn-danger p-3 border"
               >
