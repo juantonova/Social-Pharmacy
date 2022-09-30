@@ -12,7 +12,6 @@ router.route('/edit/:id').put(async (req, res) => {
   res.json({ updated: true, id: user.id });
 });
 
-// роутер на удаление профиля
 router.route('/edit/:id').delete((req, res) => {
   const { id } = req.params;
   User.destroy({ where: { id } })
