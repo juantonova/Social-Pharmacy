@@ -11,10 +11,12 @@ function Card({ user, med }) {
         <p className="card-text">Цена: {med.price} руб.</p>
         {(med.inStock > 0) ? (<div className="in-stock">В наличии</div>) : (<div className="not-in-stock">Нет в наличии</div>)}
 
-        {user && !user.isAdmin && <a href="#" className="btn btn-success buy-buy-button btn-style">Купить</a>}
+        {(user && !user.isAdmin) ? (<a href="#" className="btn btn-outline-success buy-button btn-style">Купить</a>) : (<></>)}
         {/* {user ? <a href="#" className="btn btn-outline-success buy-button">Купить</a>} : <></> */}
-        {(user && user.isAdmin) ? (<a href="#" className="btn btn-success buy-button btn-style">Изменить</a>) : (<></>)}
-        {(user && user.isAdmin) ? (<a href="#" className="btn btn-success buy-button btn-style">Удалить</a>) : (<></>)}
+        {/* {( user.isAdmin) ? (<a href="#" className="btn btn-outline-success buy-button btn-style">Изменить</a>) : (<></>)}
+        {( user.isAdmin) ? (<a href="#" className="btn btn-outline-success buy-button btn-style">Удалить</a>) : (<></>)} */}
+        <p className="status-basket"></p>
+
       </div>
     </div>
   );

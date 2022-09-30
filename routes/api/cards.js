@@ -45,6 +45,7 @@ router.get('/free/cards/:id', async (req, res) => {
   return res.status(404).json({ basket: false, inStock: med.inStock });
 });
 
+// Админ: добавление карточки
 router.post('/addform', async (req, res) => {
   try {
     const {
@@ -63,6 +64,24 @@ router.post('/addform', async (req, res) => {
   }
 });
 
+
+// Админ: удаление карточки
+
+// router.delete('/cards/admin/id-:id', async (req, res) => {
+//   const { id } = req.params;
+
+//   const deleteMed = await Med.findOne({ where: { id } });
+//   await deleteMed.destroy();
+
+//   if (deleteMed) {
+//     res.json({ delete: true });
+//   } else {
+//     res.status(404).json({ delete: false });
+//   }
+// });
+
+// Админ: изменение карточки
+
 router.get('/ordermake', async (req, res) => {
   const { id } = res.locals.user;
   const order = await Order.findAll({ where: { user_id: id } }, { raw: true });
@@ -72,5 +91,6 @@ router.get('/ordermake', async (req, res) => {
   });
   res.json({ status: 'Заказ оформлен!' });
 });
+
 
 module.exports = router;
