@@ -10,7 +10,7 @@
 
 .med-card {
     margin: 10px; 
-    width: 350px;
+    width: 300px;
     height: 450px;
     z-index: 3;
 }
@@ -90,7 +90,7 @@
 
 .free-card {
     margin: 10px; 
-    width: 370px;
+    width: 300px;
     height: 450px;
     z-index: 3;
 }
@@ -98,7 +98,7 @@
 .in-stock {
     position: absolute;
     margin-top: -320px;
-    margin-left: 260px;
+    margin-left: 220px;
     z-index: 5;
     background-color: rgb(25,135,83);
     font-size: 13px;
@@ -111,7 +111,7 @@
 .not-in-stock {
     position: absolute;
     margin-top: -320px;
-    margin-left: 260px;
+    margin-left: 220px;
     z-index: 5;
     background-color: rgb(156, 11, 11);
     font-size: 13px;

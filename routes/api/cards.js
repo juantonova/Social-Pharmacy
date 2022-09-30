@@ -31,6 +31,8 @@ router.get('/free/cards/:id', async (req, res) => {
     const user_id = res.locals.user.id;
     const order = Order.findOne({ where: { med_id: med.id, user_id } });
     if (order) {
+      med.price = 0;
+      med.save();
       order.count += 1;
       await order.save();
       return res.json({ basket: true, inStock: med.inStock });

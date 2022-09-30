@@ -20,7 +20,7 @@ if (sortDown) {
 if (cardList) {
   cardList.addEventListener('click', async (event) => {
     event.preventDefault();
-    if (event.target.classList.contains('buy-button')) {
+    if (event.target.classList.contains('buy-buy-button')) {
       const med = event.target.closest('.card-body');
       const medId = med.id;
       const response = await fetch(`api/cards/${medId}`);
@@ -71,7 +71,7 @@ if (addForm) {
 if (freeCardList) {
   freeCardList.addEventListener('click', async (event) => {
     event.preventDefault();
-    if (event.target.classList.contains('buy-button')) {
+    if (event.target.classList.contains('buy-buy-button')) {
       const med = event.target.closest('.card-body');
       const medId = med.id;
       const response = await fetch(`api/cards/${medId}`);

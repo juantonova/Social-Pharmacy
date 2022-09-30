@@ -6,7 +6,13 @@ const FormAddCard = require('../../views/FormAddCard');
 
 router.get('/', async (req, res) => {
   const meds = await Med.findAll({ raw: true });
+  meds.sort((a, b) => a.id - b.id);
   const freeMeds = await meds.slice(0, 3);
+  freeMeds.forEach(async (med) => {
+    const freeMed = await Med.findOne({ where: { id: med.id } });
+    freeMed.price = 0;
+    freeMed.save();
+  });
   const freeMedsId = freeMeds.map((med) => med.id);
   const { user } = res.locals;
   const fmeds = meds.filter((med) => !freeMedsId.includes(med.id));

@@ -23,7 +23,6 @@ function Layout({ children, user }) {
       <body>
         <Navbar user={user} />
         {children}
-        <div id="map" className="map"></div>
       </body>
     </html>
   );
