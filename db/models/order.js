@@ -26,6 +26,9 @@ module.exports = (sequelize, DataTypes) => {
       status: {
         type: DataTypes.TEXT,
       },
+      count: {
+        type: DataTypes.INTEGER,
+      },
     },
     {
       sequelize,

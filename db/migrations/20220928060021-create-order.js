@@ -24,6 +24,9 @@ module.exports = {
       status: {
         type: Sequelize.TEXT,
       },
+      count: {
+        type: Sequelize.INTEGER,
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,
@@ -34,7 +37,7 @@ module.exports = {
       },
     });
   },
-  async down(queryInterface, Sequelize) {
+  async down(queryInterface) {
     await queryInterface.dropTable('Orders');
   },
 };

@@ -24,16 +24,30 @@ function Order({ user, orders, title, meds }) {
                   <h5 className="card-title">Цена {med.price} руб.</h5>
 
                   <p className="card-text">{med.title}</p>
+                  <p className="card-text">
+                    колличество в корзине
+                    {med.count}
+                  </p>
                   <div
                     className="btn-group-vertical"
                     role="group"
                     aria-label="Vertical button group"
                   >
-                    <button id="btnPlus" type="button" className="btn btn-info p-2 border">
-                      + добавить товар
+                    <button
+                      id="btnPlus"
+                      type="button"
+                      data-count={med.count}
+                      className="btn btn-info p-2 border btnPlus"
+                    >
+                      + {med.count} добавить товар
                     </button>
-                    <button id="btnMinus" type="button" className="btn btn-warning p-2 border">
-                      - убрать товар
+                    <button
+                      id="btnMinus"
+                      type="button"
+                      data-count={med.count}
+                      className="btn btn-warning p-2 border"
+                    >
+                      - {med.count} убрать товар
                     </button>
                   </div>
                 </div>
