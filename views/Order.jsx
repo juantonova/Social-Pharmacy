@@ -11,14 +11,14 @@ function Order({ user, orders, title, meds, totalPrice, count }) {
       totalPrice={totalPrice}
       count={count}
     >
-      <div className="container-xxl js-order">
+      <div className="container-xxl js-order final-order">
         <h3 className="card-title">Корзина </h3>
         <div>
           <h5 className="js-total">
             Стоимость заказа
             <p className="js-totalPrice">{totalPrice}</p> руб.
           </h5>
-          <button type="button" className="btn btn-outline-primary ">
+          <button type="button" className="btn btn-outline-primary order-make ">
             Оформить заказ
           </button>
         </div>

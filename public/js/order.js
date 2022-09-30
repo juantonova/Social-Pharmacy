@@ -1,13 +1,10 @@
 const container = document.querySelector('.js-order');
 
 const total = document.querySelector('.js-totalPrice');
-
-
 const orderMake = document.querySelector('.order-make');
 const finalOrder = document.querySelector('.final-order');
-console.log(finalOrder)
 
-container.addEventListener('click', async (event) => {
+if (container) {container.addEventListener('click', async (event) => {
   event.preventDefault();
   if (event.target.classList.contains('btnPlus-data')) {
     const { id } = event.target.dataset;
@@ -42,7 +39,7 @@ container.addEventListener('click', async (event) => {
       total.innerText = res;
     }
   }
-});
+});}
 
 if (orderMake) {
   orderMake.addEventListener('click', async () => {
