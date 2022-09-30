@@ -7,7 +7,8 @@ module.exports = function Navbar({ user }) {
         <nav className="navbar navbar-expand-lg navbar-style">
           <div className="container-fluid">
 
-          <img src="/img/pharmacy-icon.png" alt="logo" width="30"></img>
+          <img src="/img/apteka.png" alt="logo" width="30"></img>
+
             <a className="navbar-brand navbar-style" href="#">Аптека</a>
             <button className="navbar-toggler navbar-style" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
 
@@ -39,7 +40,8 @@ module.exports = function Navbar({ user }) {
         <nav className="navbar navbar-expand-lg bg-light">
           <div className="container-fluid">
 
-            <img src="/img/pharmacy-icon.png" alt="logo" width="30"></img>
+            <img src="/img/apteka.png" alt="logo" width="30"></img>
+
             <div className="navbar-brand">Аптека</div>
             <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
 
