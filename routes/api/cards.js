@@ -43,6 +43,7 @@ router.get('/free/cards/:id', async (req, res) => {
   return res.status(404).json({ basket: false, inStock: med.inStock });
 });
 
+// Админ: добавление карточки
 router.post('/addform', async (req, res) => {
   try {
     const {
@@ -60,5 +61,22 @@ router.post('/addform', async (req, res) => {
     return res.status(500).json({ message: err.message, status: false });
   }
 });
+
+// Админ: удаление карточки
+
+// router.delete('/cards/admin/id-:id', async (req, res) => {
+//   const { id } = req.params;
+
+//   const deleteMed = await Med.findOne({ where: { id } });
+//   await deleteMed.destroy();
+
+//   if (deleteMed) {
+//     res.json({ delete: true });
+//   } else {
+//     res.status(404).json({ delete: false });
+//   }
+// });
+
+// Админ: изменение карточки
 
 module.exports = router;

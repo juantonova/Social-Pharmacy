@@ -34,7 +34,9 @@ router.get('/down', async (req, res) => {
 });
 
 router.get('/addform', async (req, res) => {
-  res.renderComponent(FormAddCard, { });
+  const meds = await Med.findAll({ raw: true });
+  const freeMeds = await meds.slice(0, 3);
+  res.renderComponent(FormAddCard, { freeMeds, meds });
 });
 
 module.exports = router;

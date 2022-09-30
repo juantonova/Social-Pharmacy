@@ -4,6 +4,7 @@ const cardList = document.querySelector('.full-card-list');
 const addForm = document.querySelector('.add-form');
 const freeCardList = document.querySelector('.free-card-list');
 const addErr = document.querySelector('.addErr');
+const adminFreeCardList = document.querySelector('.admin-free-card-list');
 
 if (sortUp) {
   sortUp.addEventListener('click', () => {
@@ -91,3 +92,24 @@ if (freeCardList) {
     }
   });
 }
+
+// удаление бесплатной карточки
+// if (adminFreeCardList) {
+//   adminFreeCardList.addEventListener('click', async (event) => {
+//     event.preventDefault();
+//     if (event.target.classList.contains('delete')) {
+//       const { id } = event.target;
+//       const response = await fetch(`/api/cards/admin/${id}`, {
+//         method: 'DELETE',
+//       });
+//       const answer = await response.json();
+
+//       if (answer.delete) {
+//         document.querySelector(`#${id}`).remove();
+//       }
+//     }
+//   });
+// }
+// удаление обычной карточки
+
+// изменение карточки
