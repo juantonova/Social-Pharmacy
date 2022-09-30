@@ -26,7 +26,7 @@ router.post('/', async (req, res) => {
     if (password === confirmPassword) {
       const hashedPassword = await bcrypt.hash(password, 10);
       const newUser = await User.create({
-        name, email, password: hashedPassword,
+        name, email, password: hashedPassword, isAdmin: false,
       });
 
       req.session.user_id = newUser.id;
