@@ -1,5 +1,11 @@
 const container = document.querySelector('.js-order');
+
 const total = document.querySelector('.js-totalPrice');
+
+
+const orderMake = document.querySelector('.order-make');
+const finalOrder = document.querySelector('.final-order');
+console.log(finalOrder)
 
 container.addEventListener('click', async (event) => {
   event.preventDefault();
@@ -37,3 +43,11 @@ container.addEventListener('click', async (event) => {
     }
   }
 });
+
+if (orderMake) {
+  orderMake.addEventListener('click', async () => {
+    const response = await fetch('api/ordermake');
+    const data = await response.json();
+    finalOrder.innerHTML = data.status;
+  });
+}

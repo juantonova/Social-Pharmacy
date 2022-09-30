@@ -8,7 +8,7 @@ router.get('/cards/:id', async (req, res) => {
     med.inStock -= 1;
     await med.save();
     const user_id = res.locals.user.id;
-    const order = await Order.findOne({ where: { med_id: med.id, user_id } });
+    const order = await Order.findOne({ where: { med_id: med.id, user_id, status: 'В корзине'} });
     if (order) {
       order.count += 1;
       await order.save();
@@ -29,7 +29,7 @@ router.get('/free/cards/:id', async (req, res) => {
     med.inStock -= 1;
     await med.save();
     const user_id = res.locals.user.id;
-    const order = Order.findOne({ where: { med_id: med.id, user_id } });
+    const order = Order.findOne({ where: { med_id: med.id, user_id, status: 'В корзине' } });
     if (order) {
       med.price = 0;
       med.save();
@@ -61,6 +61,16 @@ router.post('/addform', async (req, res) => {
   } catch (err) {
     return res.status(500).json({ message: err.message, status: false });
   }
+});
+
+router.get('/ordermake', async (req, res) => {
+  const { id } = res.locals.user;
+  const order = await Order.findAll({ where: { user_id: id } }, { raw: true });
+  order.forEach(async (med) => {
+    med.status = 'Заказ оформлен';
+    await med.save();
+  });
+  res.json({ status: 'Заказ оформлен!' });
 });
 
 module.exports = router;
