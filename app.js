@@ -28,7 +28,7 @@ app.use('/profile', profile);
 app.use('/edit', editProfile);
 app.use('/registration', registrationRouter);
 app.use('/api', editProfileApi);
-app.use('/order', orderRouter);
+app.use('/', orderRouter);
 
 app.listen(PORT, async () => {
   try {
