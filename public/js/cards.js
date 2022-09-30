@@ -1,7 +1,8 @@
 const sortUp = document.querySelector('#sort-up');
 const sortDown = document.querySelector('#sort-down');
-const cardList = document.querySelector('.card-list');
+const cardList = document.querySelector('.full-card-list');
 const addForm = document.querySelector('.add-form');
+const freeCardList = document.querySelector('.free-card-list');
 const addErr = document.querySelector('.addErr');
 
 if (sortUp) {
@@ -18,6 +19,7 @@ if (sortDown) {
 
 if (cardList) {
   cardList.addEventListener('click', async (event) => {
+    event.preventDefault();
     if (event.target.classList.contains('buy-button')) {
       const med = event.target.closest('.card-body');
       const medId = med.id;
@@ -45,7 +47,6 @@ if (addForm) {
     const {
       action, method, price, url, title, inStock,
     } = event.target;
-    console.log(action, method, price, url, title);
     const response = await fetch(action, {
       method,
       headers: {
@@ -63,6 +64,30 @@ if (addForm) {
       window.location.href = '/';
     } else {
       addErr.textContent = answer.message;
+    }
+  });
+}
+
+if (freeCardList) {
+  freeCardList.addEventListener('click', async (event) => {
+    event.preventDefault();
+    if (event.target.classList.contains('buy-button')) {
+      const med = event.target.closest('.card-body');
+      const medId = med.id;
+      const response = await fetch(`api/cards/${medId}`);
+      const answer = await response.json();
+      const statusBasket = med.querySelector('.status-basket');
+      const inStock = med.querySelector('.in-stock');
+      if (answer.inStock <= 0) {
+        inStock.textContent = 'Нет в наличии';
+      } else {
+        inStock.textContent = 'В наличии';
+      }
+      if (answer.basket) {
+        statusBasket.textContent = 'Товар добавлен в корзину';
+      } else {
+        statusBasket.textContent = 'Товара нет в наличии';
+      }
     }
   });
 }
