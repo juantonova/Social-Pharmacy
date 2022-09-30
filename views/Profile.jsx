@@ -28,7 +28,7 @@ function Profile({ user, title }) {
               className="card-body row justify-content-center align-items-center"
               data-id={user.id}
             >
-              <a href={`/edit/${user.id}`} className="btn btn-primary p-3 border">
+              <a href={`/edit/${user.id}`} className="btn btn-success p-3 border">
                 Изменить профиль
               </a>
               <button

@@ -9,9 +9,9 @@ module.exports = function Login() {
         <div className="regaTable">
           <div className="error" />
           <form method="POST" className="login">
-            <input type="text" placeholder="Введите ваш логин" name="name" className="firstLogin" />
-            <input type="password" placeholder="Введите ваш пароль" name="password" className="firstPassword" />
-            <button className="btn" type="submit">Войти</button>
+            <input type="text" placeholder="Введите ваш логин" name="name" className="firstLogin form-control varform" />
+            <input type="password" placeholder="Введите ваш пароль" name="password" className="firstPassword form-control varform" />
+            <button className="btn btn-success" type="submit">Войти</button>
           </form>
           <div className="error" />
         </div>

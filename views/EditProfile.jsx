@@ -35,7 +35,7 @@ function EditProfile({ user, title }) {
                 aria-describedby="emailHelp"
               />
             </div>
-            <button type="submit" className="btn btn-primary">
+            <button type="submit" className="btn btn-success">
               Сохранить изменения
             </button>
           </form>

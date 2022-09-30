@@ -38,7 +38,7 @@ function Order({ user, orders, title, meds, total, count }) {
                       type="button"
                       data-count={med.count}
                       data-id={med.id}
-                      className="btn btn-info p-2 border btnPlus-data"
+                      className="btn btn-success p-2 border btnPlus-data"
                     >
                       + {med.count} добавить товар
                     </button>

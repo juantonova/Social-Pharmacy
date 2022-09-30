@@ -28,6 +28,7 @@ if (cardList) {
       const statusBasket = med.querySelector('.status-basket');
       const inStock = med.querySelector('.in-stock');
       if (answer.inStock <= 0) {
+        inStock.classList = 'not-in-stock';
         inStock.textContent = 'Нет в наличии';
       } else {
         inStock.textContent = 'В наличии';

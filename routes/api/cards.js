@@ -14,7 +14,7 @@ router.get('/cards/:id', async (req, res) => {
       await order.save();
       return res.json({ basket: true, inStock: med.inStock });
     }
-    await Order.create({
+    const or = await Order.create({
       user_id, med_id: med.id, status: 'В корзине', count: 1,
     });
     return res.json({ basket: true, inStock: med.inStock });
